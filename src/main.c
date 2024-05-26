@@ -134,7 +134,6 @@ int main(void)
 
                     bounds = GetMeshBoundingBox(model.meshes[0]);
 
-                    // TODO: Move camera position from target enough distance to visualize model properly
                 }
                 else if (IsFileExtension(droppedFiles.paths[0], ".png"))  // Texture file formats supported
                 {
