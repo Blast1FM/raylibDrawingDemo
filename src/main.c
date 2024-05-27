@@ -56,6 +56,8 @@ int main(void)
     int ambientLoc = GetShaderLocation(shader, "ambient");
     SetShaderValue(shader, ambientLoc, (float[4]){ 1.0f, 1.0f, 1.0f, 1.0f }, SHADER_UNIFORM_VEC4);
 
+    model.materials[0].shader = shader;
+
     // Create lights
     Light lights[MAX_LIGHTS] = { 0 };
     lights[0] = CreateLight(LIGHT_POINT, (Vector3){-2, 1, -2 }, Vector3Zero(), YELLOW, shader);
