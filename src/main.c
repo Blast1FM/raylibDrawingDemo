@@ -65,7 +65,7 @@ int main(void)
     lights[2] = CreateLight(LIGHT_POINT, (Vector3){-2, 1,  2 }, Vector3Zero(), GREEN, shader);
     lights[3] = CreateLight(LIGHT_POINT, (Vector3){ 2, 1, -2 }, Vector3Zero(), BLUE, shader);
 
-    // NOTE: bounds are calculated from the original size of the model,
+    // NOTE: bounds are caclculated from the original size of the model,
     // if model is scaled on drawing, bounds must be also scaled
 
     //DisableCursor();                // Limit cursor to relative movement inside the window
@@ -133,7 +133,7 @@ int main(void)
                     UnloadModel(model);                         // Unload previous model
                     model = LoadModel(droppedFiles.paths[0]);   // Load new model
                     model.materials[0].maps[MATERIAL_MAP_DIFFUSE].texture = texture; // Set current map diffuse texture
-
+                    model.materials[0].shader = shader;
                     bounds = GetMeshBoundingBox(model.meshes[0]);
 
                 }
