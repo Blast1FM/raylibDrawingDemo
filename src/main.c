@@ -54,16 +54,16 @@ int main(void)
     
     // Ambient light level (some basic lighting)
     int ambientLoc = GetShaderLocation(shader, "ambient");
-    SetShaderValue(shader, ambientLoc, (float[4]){ 1.0f, 1.0f, 1.0f, 1.0f }, SHADER_UNIFORM_VEC4);
+    SetShaderValue(shader, ambientLoc, (float[4]){ 0.1f, 0.1f, 0.1f, 0.1f }, SHADER_UNIFORM_VEC4);
 
     model.materials[0].shader = shader;
 
     // Create lights
     Light lights[MAX_LIGHTS] = { 0 };
-    lights[0] = CreateLight(LIGHT_POINT, (Vector3){-2, 1, -2 }, Vector3Zero(), YELLOW, shader);
-    lights[1] = CreateLight(LIGHT_POINT, (Vector3){ 2, 1,  2 }, Vector3Zero(), RED, shader);
-    lights[2] = CreateLight(LIGHT_POINT, (Vector3){-2, 1,  2 }, Vector3Zero(), GREEN, shader);
-    lights[3] = CreateLight(LIGHT_POINT, (Vector3){ 2, 1, -2 }, Vector3Zero(), BLUE, shader);
+    lights[0] = CreateLight(LIGHT_POINT, (Vector3){-15, 5, -15 }, Vector3Zero(), YELLOW, shader);
+    lights[1] = CreateLight(LIGHT_POINT, (Vector3){ 15, 5,  15 }, Vector3Zero(), RED, shader);
+    lights[2] = CreateLight(LIGHT_POINT, (Vector3){-15, 5,  15 }, Vector3Zero(), GREEN, shader);
+    lights[3] = CreateLight(LIGHT_POINT, (Vector3){ 15, 5, -15 }, Vector3Zero(), BLUE, shader);
 
     // NOTE: bounds are caclculated from the original size of the model,
     // if model is scaled on drawing, bounds must be also scaled
@@ -168,9 +168,7 @@ int main(void)
 
                 BeginShaderMode(shader);
 
-                    
-                    DrawCube(Vector3Zero(), 2.0, 2.0, 2.0, WHITE);
-                    DrawPlane(Vector3Zero(), (Vector2) {50.0f, 50.0f}, WHITE);
+                    DrawPlane(Vector3Zero(), (Vector2){50.0f,50.0f}, GRAY);
 
                     if(drawModel)
                     {
